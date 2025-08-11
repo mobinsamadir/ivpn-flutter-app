@@ -1,0 +1,18 @@
+name: Debug File Content
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  debug:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print settings.gradle.kts content
+        run: |
+          echo "--- Content of android/settings.gradle.kts on the server ---"
+          cat android/settings.gradle.kts
+          echo "----------------------------------------------------------"
