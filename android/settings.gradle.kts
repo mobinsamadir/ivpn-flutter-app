@@ -1,32 +1,28 @@
-// File: android/settings.gradle.kts
-// This is the final, most robust version.
-
 pluginManagement {
     repositories {
-        // مخزن‌های داخلی یا تحریم‌دور
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/central' }
+        // مخزن‌های ضدتحریم
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
 
-        // مخزن‌های رسمی
+        // مخزن‌های اصلی (حتماً این باشه!)
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven { url 'https://storage.googleapis.com/download.flutter.io' }
+        maven { url = uri("https://storage.googleapis.com/download.flutter.io") }
     }
 }
-
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
         google()
         mavenCentral()
-        // این خط هم برای برخی پکیج‌ها اینجا لازم است
-        maven {
-            url = uri("https://storage.googleapis.com/download.flutter.io")
-        }
+        maven { url = uri("https://storage.googleapis.com/download.flutter.io") }
     }
 }
 
-rootProject.name = "android"
+rootProject.name = "iVPN"
 include(":app")
