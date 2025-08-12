@@ -3,15 +3,18 @@
 
 pluginManagement {
     repositories {
+        // مخزن‌های داخلی یا تحریم‌دور
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+
+        // مخزن‌های رسمی
         google()
         mavenCentral()
         gradlePluginPortal()
-        // این خط به طور صریح آدرس پلاگین فلاتر را اضافه می‌کند
-        maven {
-            url = uri("https://storage.googleapis.com/download.flutter.io")
-        }
+        maven { url 'https://storage.googleapis.com/download.flutter.io' }
     }
 }
+
 
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
